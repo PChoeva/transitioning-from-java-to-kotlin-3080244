@@ -3,6 +3,7 @@ package com.linkedinlearning.persistence
 import com.linkedinlearning.model.Product
 import kotlinx.coroutines.runBlocking
 import org.jetbrains.exposed.sql.Database
+import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.transactions.transaction
 
 object ProductDatabase {
@@ -13,7 +14,7 @@ object ProductDatabase {
 
         transaction {
             // create table if it doesn't exist
-            TODO()
+            SchemaUtils.create(ProductTable)
         }
     }
 

@@ -1,6 +1,7 @@
 package com.linkedinlearning.plugins
 
 import com.linkedinlearning.model.IN_MEMORY_PRODUCTS
+import com.linkedinlearning.persistence.ProductDatabase
 import io.ktor.server.routing.*
 import io.ktor.http.*
 import io.ktor.server.application.*
@@ -15,7 +16,7 @@ fun Application.configureRouting() {
         }
 
         get("/products") {
-            call.respond(IN_MEMORY_PRODUCTS)
+            call.respond(ProductDatabase.dao.products())
         }
     }
 }
